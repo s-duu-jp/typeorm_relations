@@ -6,17 +6,26 @@
     "start": "run-p api",
     "api": "nx serve api",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "typeorm": "$(npm bin)/ts-node -O '{\"module\":\"commonjs\"}' -r tsconfig-paths/register -P ./tsconfig.base.json $(npm bin)/typeorm --config apps/api/src/app/typeorm/typeorm.config.ts",
+    "typeorm:migration": "npm run typeorm migration:generate -- -n",
+    "typeorm:drop": "npm run typeorm schema:drop",
+    "typeorm:run": "npm run typeorm migration:run",
+    "typeorm:show": "npm run typeorm migration:show",
+    "typeorm:sync": "npm run typeorm schema:sync"
   },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/typeorm": "^7.1.5",
     "dotenv": "^10.0.0",
+    "mysql2": "^2.3.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "typeorm": "^0.2.38"
   },
   "devDependencies": {
     "@nestjs/schematics": "^7.0.0",
@@ -39,6 +48,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.1",
     "ts-jest": "27.0.5",
+    "ts-node": "^10.4.0",
     "typescript": "~4.3.5"
   }
 }
