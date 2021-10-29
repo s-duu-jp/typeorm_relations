@@ -1,1 +1,1 @@
-export class _blank {}
+export * from './1635463866401-initialize';
