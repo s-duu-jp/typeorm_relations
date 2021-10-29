@@ -1,0 +1,13 @@
+@endpoint = http://localhost:3333/api
+
+### User取得
+POST {{endpoint}}/user HTTP/1.1
+Content-Type: application/json
+
+### Profile取得
+POST {{endpoint}}/profile HTTP/1.1
+Content-Type: application/json
+
+### UserProfile取得
+POST {{endpoint}}/userprofile HTTP/1.1
+Content-Type: application/json
