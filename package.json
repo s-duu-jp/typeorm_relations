@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "run-p api",
+    "start": "npm run typeorm schema:drop && run-p api",
     "api": "nx serve api",
     "build": "nx build",
     "test": "nx test",
